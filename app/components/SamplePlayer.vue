@@ -199,7 +199,7 @@ onMounted(async () => {
                 :aria-label="isPlaying ? '일시정지' : '재생'"
                 @click="onTogglePlay"
             >
-                {{ isPlaying ? "⏸" : "▶" }}
+                <PlayPauseIcon :playing="isPlaying" />
             </button>
         </div>
 

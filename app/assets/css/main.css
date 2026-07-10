@@ -182,6 +182,9 @@ main {
 /* ----- frame + page skeleton ----- */
 html {
     background: var(--bg-color);
+    /* prevent double-tap-to-zoom on mobile (buttons like play/pause get
+       tapped in quick succession and shouldn't trigger a zoom gesture) */
+    touch-action: manipulation;
 }
 body,
 button,
@@ -857,6 +860,9 @@ hr {
     line-height: 1;
 }
 .sample-player-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 48px;
     height: 48px;
     padding: 0;
@@ -864,7 +870,10 @@ hr {
     border: 0;
     border-radius: 50%;
     color: #fff;
-    font-size: 1rem;
+}
+.sample-player-toggle svg {
+    width: 18px;
+    height: 18px;
 }
 .sample-player-toggle:not(:disabled):hover {
     background: #333;
@@ -960,9 +969,12 @@ hr {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 50%;
     color: var(--theme-color1-default);
-    font-size: 0.7rem;
     opacity: 0;
     transition: opacity 0.2s;
+}
+.sample-art .play-badge svg {
+    width: 12px;
+    height: 12px;
 }
 .sample-row.active .sample-art .play-badge,
 .sample-row:hover .sample-art .play-badge,
@@ -1095,6 +1107,12 @@ hr {
     textarea {
         line-height: 1.6;
     }
+    /* header.scroll's translateY() makes <header> a containing block for its
+       position:fixed children (.menu, h1) — on mobile those are full-viewport
+       overlays that must stay positioned relative to the real viewport. */
+    header.scroll {
+        transform: none;
+    }
     body::after {
         top: 20px;
         left: 20px;
@@ -1178,7 +1196,7 @@ hr {
         top: -2px;
         left: 0;
         width: 100%;
-        font-size: 4.2rem;
+        font-size: 3rem;
         z-index: 92;
         text-align: center;
     }

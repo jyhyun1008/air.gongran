@@ -41,7 +41,7 @@ const onPlayClick = () => toggle(props.item);
                 :alt="item.title"
             />
             <span v-if="item.type !== 'illustration'" class="play-badge">
-                {{ isActivePlaying ? "⏸" : "▶" }}
+                <PlayPauseIcon :playing="isActivePlaying" />
             </span>
         </button>
 
