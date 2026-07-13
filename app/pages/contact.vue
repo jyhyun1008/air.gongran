@@ -9,9 +9,11 @@ useSeoMeta({ title: "contact | GONGRAN" });
             <p>작업 문의나 하고 싶은 이야기가 있다면 아래 채널로 연락해 주세요.</p>
             <dl class="inline">
                 <dt>이메일</dt>
-                <dd><a href="mailto:contact@gongran.studio">however_ina@howeverina.studio</a></dd>
+                <dd><a href="mailto:however_ina@howeverina.studio">however_ina@howeverina.studio</a></dd>
                 <dt>트위터</dt>
-                <dd><a href="#" target="_blank" rel="nofollow noopener">@however_ina</a></dd>
+                <dd><a href="https://x.com/@however_ina" target="_blank" rel="nofollow noopener">@however_ina</a></dd>
+                <dt>크레페</dt>
+                <dd><a href="https://crepe.cm/ko/@however_ina" target="_blank" rel="nofollow noopener">@however_ina</a></dd>
             </dl>
         </div>
     </article>
