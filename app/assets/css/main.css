@@ -685,13 +685,21 @@ hr {
 
 /* ----- sample detail: large illustration hero ----- */
 .sample-illustration-hero {
-    position: relative;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 12px;
     margin-block-end: 30px;
     background: var(--theme-color5-default);
     box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.4);
+}
+.sample-illustration-hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.sample-illustration-hero .thumbnail-fallback {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
 }
 
 /* ----- persistent sample player (left pane) — styled like a generic music app "now playing" card ----- */

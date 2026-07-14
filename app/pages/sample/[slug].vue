@@ -23,12 +23,7 @@ onMounted(() => {
 <template>
     <template v-if="page">
         <div v-if="page.type === 'illustration'" class="sample-illustration-hero">
-            <span
-                v-if="page.image"
-                class="art-bg"
-                :style="{ backgroundImage: `url(${page.image})` }"
-            ></span>
-            <img v-if="page.image" class="art-fg" :src="page.image" :alt="page.title" />
+            <img v-if="page.image" :src="page.image" :alt="page.title" />
             <ThumbnailImage v-else :alt="page.title" />
         </div>
 
