@@ -822,7 +822,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
     margin-block-start: 12px;
 }
 .sample-player-mode-toggle {
@@ -890,6 +890,100 @@ hr {
 .sample-player-toggle:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+}
+
+.sample-player-volume {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sample-player-volume-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: var(--theme-color5-default);
+    border: 0;
+    border-radius: 50%;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.sample-player-volume-toggle svg {
+    width: 16px;
+    height: 16px;
+}
+.sample-player-volume-toggle:hover {
+    opacity: 1;
+}
+.sample-player-volume-popover {
+    /* extends all the way down to touch the toggle button (no dead gap
+       for the cursor to fall through on the way up from the button) —
+       the visible card sits inside, offset from the top by its own margin */
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 32px;
+    height: 98px;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+.sample-player-volume:hover .sample-player-volume-popover,
+.sample-player-volume:focus-within .sample-player-volume-popover {
+    opacity: 1;
+    pointer-events: auto;
+}
+.sample-player-volume-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 90px;
+    padding-block: 10px;
+    background: var(--bg-color);
+    border: 1px solid var(--theme-color5-default);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.4);
+}
+.sample-player-volume-slider {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    appearance: none;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+}
+.sample-player-volume-slider::-webkit-slider-runnable-track {
+    width: 4px;
+    background: var(--theme-color5-default);
+    border-radius: 2px;
+}
+.sample-player-volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    margin-left: -4px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--theme-color1-default);
+}
+.sample-player-volume-slider::-moz-range-track {
+    width: 4px;
+    background: var(--theme-color5-default);
+    border: 0;
+    border-radius: 2px;
+}
+.sample-player-volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--theme-color1-default);
 }
 
 .sample-player-audio-el {

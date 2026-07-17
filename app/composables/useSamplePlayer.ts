@@ -24,6 +24,8 @@ export const useSamplePlayer = () => {
     const duration = useState("sample-player-duration", () => 0);
     const playbackMode = useState<SamplePlaybackMode>("sample-player-mode", () => "off");
     const queue = useState<SampleTrack[]>("sample-player-queue", () => []);
+    const volume = useState("sample-player-volume", () => 1);
+    const volumeBeforeMute = useState("sample-player-volume-before-mute", () => 1);
 
     const isPlayable = computed(
         () => current.value?.type === "audio" || current.value?.type === "youtube"
@@ -49,6 +51,7 @@ export const useSamplePlayer = () => {
 
     const bindAudioElement = (el: HTMLAudioElement) => {
         audioEl = el;
+        el.volume = volume.value;
         el.addEventListener("play", () => (isPlaying.value = true));
         el.addEventListener("pause", () => (isPlaying.value = false));
         el.addEventListener("ended", () => {
@@ -61,6 +64,23 @@ export const useSamplePlayer = () => {
 
     const bindYoutubePlayer = (player: YT.Player) => {
         ytPlayer = player;
+        ytPlayer.setVolume(volume.value * 100);
+    };
+
+    const setVolume = (value: number) => {
+        const clamped = Math.min(1, Math.max(0, value));
+        volume.value = clamped;
+        if (audioEl) audioEl.volume = clamped;
+        if (ytPlayer) ytPlayer.setVolume(clamped * 100);
+    };
+
+    const toggleMute = () => {
+        if (volume.value === 0) {
+            setVolume(volumeBeforeMute.value || 1);
+        } else {
+            volumeBeforeMute.value = volume.value;
+            setVolume(0);
+        }
     };
 
     const onYoutubeStateChange = (state: YT.PlayerState) => {
@@ -193,6 +213,9 @@ export const useSamplePlayer = () => {
         isPlayable,
         isCurrent,
         playbackMode,
+        volume,
+        setVolume,
+        toggleMute,
         setQueue,
         cycleMode,
         select,

@@ -15,6 +15,8 @@ declare global {
             seekTo(seconds: number, allowSeekAhead: boolean): void;
             getCurrentTime(): number;
             getDuration(): number;
+            setVolume(volume: number): void;
+            getVolume(): number;
             destroy(): void;
         }
         enum PlayerState {

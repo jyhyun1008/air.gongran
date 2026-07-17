@@ -7,6 +7,9 @@ const {
     isPlayable,
     playbackMode,
     cycleMode,
+    volume,
+    setVolume,
+    toggleMute,
     toggle,
     seekToFraction,
     bindAudioElement,
@@ -74,6 +77,10 @@ const onSeekInput = (event: Event) => {
 
 const onTogglePlay = () => {
     if (current.value) toggle(current.value);
+};
+
+const onVolumeInput = (event: Event) => {
+    setVolume(Number((event.target as HTMLInputElement).value));
 };
 
 // space bar should always toggle play/pause, not activate whatever
@@ -214,6 +221,48 @@ onMounted(async () => {
             >
                 <PlayPauseIcon :playing="isPlaying" />
             </button>
+
+            <div class="sample-player-volume">
+                <button
+                    type="button"
+                    class="sample-player-volume-toggle"
+                    :aria-label="volume === 0 ? '음소거 해제' : '음소거'"
+                    :title="volume === 0 ? '음소거 해제' : '음소거'"
+                    @click="toggleMute"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="4 9 8 9 13 4 13 20 8 15 4 15" fill="currentColor" stroke="none" />
+                        <template v-if="volume > 0">
+                            <path
+                                d="M17 8a5 5 0 0 1 0 8"
+                                stroke-linecap="round"
+                                :opacity="volume > 0.15 ? 1 : 0"
+                            />
+                            <path
+                                d="M19.5 5.5a9 9 0 0 1 0 13"
+                                stroke-linecap="round"
+                                :opacity="volume > 0.6 ? 1 : 0"
+                            />
+                        </template>
+                        <template v-else>
+                            <path d="M17 9l5 6M22 9l-5 6" stroke-linecap="round" />
+                        </template>
+                    </svg>
+                </button>
+                <div class="sample-player-volume-popover">
+                    <div class="sample-player-volume-card">
+                        <input
+                            class="sample-player-volume-slider"
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            :value="volume"
+                            @input="onVolumeInput"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <audio ref="audioRef" class="sample-player-audio-el"></audio>
