@@ -21,6 +21,35 @@ const audioRef = ref<HTMLAudioElement | null>(null);
 const ytMountRef = ref<HTMLDivElement | null>(null);
 const titleWrapRef = ref<HTMLDivElement | null>(null);
 const titleRef = ref<HTMLElement | null>(null);
+const volumeWrapRef = ref<HTMLDivElement | null>(null);
+
+// touch devices have no hover, so the volume slider can't reveal itself
+// on mouseenter — tapping the button opens it instead, tapping again mutes,
+// and tapping anywhere else closes it back up. Hover-capable (mouse) devices
+// keep the original single-click-to-mute behavior since hover already
+// reveals the slider.
+const isVolumeOpen = ref(false);
+const supportsHover = ref(true);
+
+const onVolumeToggleClick = () => {
+    if (supportsHover.value) {
+        toggleMute();
+        return;
+    }
+    if (!isVolumeOpen.value) {
+        isVolumeOpen.value = true;
+        return;
+    }
+    toggleMute();
+};
+
+const onDocumentPointerDown = (event: PointerEvent) => {
+    if (!isVolumeOpen.value) return;
+    const target = event.target as Node | null;
+    if (volumeWrapRef.value && target && !volumeWrapRef.value.contains(target)) {
+        isVolumeOpen.value = false;
+    }
+};
 
 const isMarquee = ref(false);
 const marqueeDuration = ref(10);
@@ -38,12 +67,15 @@ const checkMarquee = async () => {
 
 watch(() => current.value?.title, checkMarquee, { immediate: true });
 onMounted(() => {
+    supportsHover.value = window.matchMedia("(hover: hover)").matches;
     window.addEventListener("resize", checkMarquee);
     window.addEventListener("keydown", onWindowKeydown);
+    document.addEventListener("pointerdown", onDocumentPointerDown);
 });
 onBeforeUnmount(() => {
     window.removeEventListener("resize", checkMarquee);
     window.removeEventListener("keydown", onWindowKeydown);
+    document.removeEventListener("pointerdown", onDocumentPointerDown);
 });
 
 const progressFraction = computed(() => (duration.value ? currentTime.value / duration.value : 0));
@@ -222,13 +254,13 @@ onMounted(async () => {
                 <PlayPauseIcon :playing="isPlaying" />
             </button>
 
-            <div class="sample-player-volume">
+            <div ref="volumeWrapRef" class="sample-player-volume" :class="{ open: isVolumeOpen }">
                 <button
                     type="button"
                     class="sample-player-volume-toggle"
-                    :aria-label="volume === 0 ? '음소거 해제' : '음소거'"
-                    :title="volume === 0 ? '음소거 해제' : '음소거'"
-                    @click="toggleMute"
+                    :aria-label="!isVolumeOpen ? '음량 조절' : volume === 0 ? '음소거 해제' : '음소거'"
+                    :title="!isVolumeOpen ? '음량 조절' : volume === 0 ? '음소거 해제' : '음소거'"
+                    @click="onVolumeToggleClick"
                 >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polygon points="4 9 8 9 13 4 13 20 8 15 4 15" fill="currentColor" stroke="none" />

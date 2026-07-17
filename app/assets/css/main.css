@@ -933,7 +933,8 @@ hr {
     transition: opacity 0.15s ease;
 }
 .sample-player-volume:hover .sample-player-volume-popover,
-.sample-player-volume:focus-within .sample-player-volume-popover {
+.sample-player-volume:focus-within .sample-player-volume-popover,
+.sample-player-volume.open .sample-player-volume-popover {
     opacity: 1;
     pointer-events: auto;
 }
