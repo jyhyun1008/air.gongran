@@ -36,9 +36,11 @@ const checkMarquee = async () => {
 watch(() => current.value?.title, checkMarquee, { immediate: true });
 onMounted(() => {
     window.addEventListener("resize", checkMarquee);
+    window.addEventListener("keydown", onWindowKeydown);
 });
 onBeforeUnmount(() => {
     window.removeEventListener("resize", checkMarquee);
+    window.removeEventListener("keydown", onWindowKeydown);
 });
 
 const progressFraction = computed(() => (duration.value ? currentTime.value / duration.value : 0));
@@ -72,6 +74,17 @@ const onSeekInput = (event: Event) => {
 
 const onTogglePlay = () => {
     if (current.value) toggle(current.value);
+};
+
+// space bar should always toggle play/pause, not activate whatever
+// button (e.g. the loop-mode button) currently has keyboard focus
+const onWindowKeydown = (event: KeyboardEvent) => {
+    if (event.code !== "Space") return;
+    const target = event.target as HTMLElement | null;
+    if (target && ["INPUT", "TEXTAREA"].includes(target.tagName)) return;
+    if (target?.isContentEditable) return;
+    event.preventDefault();
+    onTogglePlay();
 };
 
 const modeLabel = computed(() => {
