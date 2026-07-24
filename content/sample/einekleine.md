@@ -1,0 +1,9 @@
+---
+title: 아이네 클라이네 - 요네즈 켄시
+type: audio
+image: /images/sample/einekleine.webp
+comment: 의뢰로 제작한 MR 작업물입니다. 무단 사용 방지를 위해 가이드보컬이 포함된 버전을 첨부합니다.
+tags: ["음악", "편곡", "베이스", "기타", "의뢰"]
+date: "2026-07-24"
+audioSrc: /audios/einekleine.mp3
+---
