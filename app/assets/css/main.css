@@ -557,6 +557,12 @@ hr {
     font-size: smaller;
 }
 
+blockquote {
+    padding: 5px 5px 5px 2rem;
+    background-color: var(--theme-color5-default);
+    border-left: 5px solid var(--theme-color2-default);
+}
+
 /* ----- tag filter ----- */
 .tag-filter-group {
     display: flex;
