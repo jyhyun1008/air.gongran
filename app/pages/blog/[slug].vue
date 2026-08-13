@@ -23,7 +23,7 @@ useSeoMeta({ title: () => `${page.value?.title} | blog | GONGRAN` });
             :tags="page.tags"
         />
 
-        <ContentRenderer :value="page" />
+        <ContentRenderer :value="page" class="post-body" />
 
         <p class="text-center" style="margin-top: 60px">
             <NuxtLink to="/blog">← blog 목록으로</NuxtLink>

@@ -23,7 +23,7 @@ useSeoMeta({ title: () => `${page.value?.title} | project | GONGRAN` });
             :tags="page.tags"
         />
 
-        <ContentRenderer :value="page" />
+        <ContentRenderer :value="page" class="post-body" />
 
         <p v-if="page.link">
             <a :href="page.link" target="_blank" rel="nofollow noopener">관련 링크 →</a>

@@ -557,6 +557,12 @@ hr {
     font-size: smaller;
 }
 
+/* ----- post body (blog / project detail content): center images narrower than the column ----- */
+.post-body img {
+    display: block;
+    margin-inline: auto;
+}
+
 blockquote {
     padding: 5px 5px 5px 2rem;
     background-color: var(--theme-color5-default);
