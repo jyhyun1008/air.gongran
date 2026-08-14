@@ -10,7 +10,7 @@ date: "2026-08-13"
 
 ## 코코아츠
 
-![](https://velog.velcdn.com/images/howeverina/post/69f09d7e-98d5-4b4c-9d15-5d18cbb5b625/image.png)
+![](https://bucket.howeverina.studio/gongran/66aa38f2-90d0-44f8-9ddb-af3876a5d96a.webp)
 
 코코아츠는 제가 4년 이상 잡고 있던 프로젝트입니다. 사실은 언젠가는 해야지 하고 **잡기만 하고 있던** 프로젝트예요.
 오랜 시간 붙잡아온 만큼 엎고 처음부터 다시 만들었던 적도 많고, 현재는 프로젝트의 성격도 많이 바뀌어 있습니다.
@@ -25,7 +25,7 @@ date: "2026-08-13"
 
 #### 버전 1
 
-![](https://velog.velcdn.com/images/howeverina/post/65c2178a-74a9-4841-99a5-b609663f1d8d/image.png)
+![](https://bucket.howeverina.studio/gongran/b8c6587a-d7e3-46c4-909a-ad46eea3c422.webp)
 
 네. 이게 화면입니다. 화면의 전부입니다.
 프레임 쪽을 다 빼고 설명드리자면, **쯔꾸르의 타일 맵 같은 것**을 그대로 구현해보고 싶었습니다.
@@ -37,19 +37,19 @@ SSH 접속이라든지 벌쳐니 아마존이니 하는 걸 몰라서, filezilla
 
 #### 버전 2
 
-![](https://velog.velcdn.com/images/howeverina/post/32515ef3-75b2-4cba-b73e-56ebef8377d2/image.png)
+![](https://bucket.howeverina.studio/gongran/f786af9f-a843-44ef-9007-75c7e5e29f83.webp)
 
 **3D+vue** 로 변경되었던 시절입니다. three.js를 도입했었고요, 사유는 아마 캐드를 배웠기 때문에...? 도입해보고 싶었던 걸로 기억하고요. 타일 레이어링 같은 걸 할 필요가 없으니 어떤 점에서는 골머리를 덜 앓기도 했습니다. 모델링은 제가 직접 했습니다. 
 
 친구에게 Node.js를 영업당하고, 당시 Misskey를 활발하게 쓰고있었기에, vue를 써 봐야지 해서 일단 쓰긴 했는데 제대로 쓰지는 못했습니다. 지금 코드 열어보면 사실상 바닐라js랑 큰 차이가 없었고요.
 
-![](https://velog.velcdn.com/images/howeverina/post/fbdb0a75-c8f1-431b-a3db-e5fd31cb6adb/image.png)
+![](https://bucket.howeverina.studio/gongran/2b1a826d-ab19-4185-b090-2ea05b896e7b.webp)
 
 그 당시, 집과 나무를 맵에 배치하는 것까지 진행했었습니다. 또 현재 날짜와 시각에 따라 해가 뜨고 지는 것도 구현해 놓았던 기억이 납니다. 왜냐면 마침 대학원에서 해 뜨고 지는 시각의 과거 근사식 중 하나에 대해 공부하고 있었기 때문에...
 
 #### 버전 2.5 (피치타룸)
 
-![](https://velog.velcdn.com/images/howeverina/post/b984f55b-fe77-4b39-982c-a89870cf2011/image.png)
+![](https://bucket.howeverina.studio/gongran/d56f8ca1-efcf-4bd6-8f97-95d43df9e0b5.webp)
 
 찾느라 애먹었네요... 하지만 제가 기억하는 것보다 예쁘지 않아서 놀랐어요.
 
@@ -59,7 +59,7 @@ SSH 접속이라든지 벌쳐니 아마존이니 하는 걸 몰라서, filezilla
 
 #### 버전 3 (현재)
 
-![](https://velog.velcdn.com/images/howeverina/post/21f9f2e5-ebd5-4416-b539-9b8b93efbcc0/image.png)
+![](https://bucket.howeverina.studio/gongran/4250df06-a9d5-42d8-8894-a3912ac91292.webp)
 
 이것이 지금의 코코아츠입니다. 초기 UI설정이나 일부 기능을 제외하고는 거의 클로드 코드를 사용해서 만들었습니다. 지금까지 코드 잘 짜다가 갑자기 바이브 코딩? 이라는 생각이 드실 수도 있지만... 사실 제가 지금까지 개발을 해 왔던 주된 동기 중 하나가 "만들고 싶은 걸 만든다" 였기 때문에, 그리고 새로운 사이트를 만드는 데 시간을 길게 투자할 수 없게 되었기에 자연스럽게 이쪽으로 이어지게 된 것 같습니다.
 
