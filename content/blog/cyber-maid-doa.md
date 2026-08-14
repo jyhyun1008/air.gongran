@@ -1,7 +1,7 @@
 ---
 title: DOA를 소개합니다
 subtitle: 일정과 루틴 관리를 위한 AI 메이드
-thumbnail: https://bucket.howeverina.studio/gongran/2a1b228c-dee0-40e0-bf59-17b55f2b8522.webp
+thumbnail: https://bucket.howeverina.studio/gongran/2759dbc3-7637-4ef0-b907-cbc7adf3b3c4.webp
 tags: ["개발"]
 date: "2026-07-31"
 ---
