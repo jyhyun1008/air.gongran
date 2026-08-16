@@ -26,6 +26,8 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://use.fontawesome.com/releases/v5.14.0/css/all.css",
         },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
       ],
     },
   },
