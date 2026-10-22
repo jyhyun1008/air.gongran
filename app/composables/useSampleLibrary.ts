@@ -3,7 +3,7 @@ export const useSampleLibrary = () => {
         queryCollection("sample").order("date", "DESC").all()
     );
 
-    const { selectedTag, allTags, filteredItems } = useTagFilter(items, "sample-selected-tag");
+    const { selectedTag, allTags, filteredItems } = useTagFilter(items);
 
     return { items, selectedTag, allTags, filteredItems };
 };

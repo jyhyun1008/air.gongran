@@ -27,17 +27,17 @@ onMounted(() => {
             <ThumbnailImage v-else :alt="page.title" />
         </div>
 
-        <p v-if="page.comment" class="text-center">{{ page.comment }}</p>
+        <p v-if="page.comment">{{ page.comment }}</p>
 
-        <ul v-if="page.tags?.length" class="item-tags text-center" style="justify-content: center">
+        <ul v-if="page.tags?.length" class="item-tags">
             <li v-for="tag in sortTags(page.tags)" :key="tag" :class="{ primary: isPrimaryTag(tag) }">
                 {{ tag }}
             </li>
         </ul>
 
-        <ContentRenderer :value="page" />
+        <ContentRenderer :value="page" class="prose" />
 
-        <p class="text-center" style="margin-top: 60px">
+        <p class="back-link">
             <NuxtLink to="/sample">← sample 목록으로</NuxtLink>
         </p>
     </template>

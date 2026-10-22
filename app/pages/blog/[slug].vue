@@ -1,6 +1,4 @@
 <script setup lang="ts">
-definePageMeta({ contentWidth: "medium" });
-
 const route = useRoute();
 
 const { data: page } = await useAsyncData(`blog-${route.path}`, () =>
@@ -15,18 +13,5 @@ useSeoMeta({ title: () => `${page.value?.title} | blog | GONGRAN` });
 </script>
 
 <template>
-    <article v-if="page">
-        <PostHeader
-            :title="page.title"
-            :subtitle="page.subtitle"
-            :image="page.thumbnail"
-            :tags="page.tags"
-        />
-
-        <ContentRenderer :value="page" class="post-body" />
-
-        <p class="text-center" style="margin-top: 60px">
-            <NuxtLink to="/blog">← blog 목록으로</NuxtLink>
-        </p>
-    </article>
+    <PostDetail v-if="page" :page="page" back-to="/blog" back-label="blog 목록으로" />
 </template>

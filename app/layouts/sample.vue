@@ -15,14 +15,17 @@ const { current } = useSamplePlayer();
 <template>
     <SiteHeader />
 
-    <main class="content-medium">
-        <article v-if="isListRoute">
-            <h2>sample</h2>
+    <main class="content-wide">
+        <div v-if="isListRoute">
+            <div class="page-title">
+                <h2>sample</h2>
+                <p>작업 샘플을 바로 들어보고 볼 수 있어요.</p>
+            </div>
             <TagFilter v-model="selectedTag" :tags="allTags" />
-        </article>
-        <article v-else-if="current">
+        </div>
+        <div v-else-if="current" class="page-title">
             <h2>{{ current.title }}</h2>
-        </article>
+        </div>
 
         <div class="sample-layout">
             <div class="sample-player-pane">

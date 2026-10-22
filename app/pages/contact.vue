@@ -4,9 +4,11 @@ useSeoMeta({ title: "contact | GONGRAN" });
 
 <template>
     <article>
-        <h2>contact</h2>
-        <div class="box text-center">
+        <div class="page-title">
+            <h2>contact</h2>
             <p>작업 문의나 하고 싶은 이야기가 있다면 아래 채널로 연락해 주세요.</p>
+        </div>
+        <div class="box">
             <dl class="inline">
                 <dt>이메일</dt>
                 <dd><a href="mailto:however_ina@howeverina.studio">however_ina@howeverina.studio</a></dd>
